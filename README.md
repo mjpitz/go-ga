@@ -9,7 +9,7 @@ import (
     "log"
     "time"
 
-	"github.com/mjpitz/go-ga/client/v1"
+    "github.com/mjpitz/go-ga/client/v1"
     "github.com/mjpitz/go-ga/client/v1/gatypes"
 )
 

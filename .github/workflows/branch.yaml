@@ -1,0 +1,30 @@
+name: branch
+
+on:
+  pull_request:
+    paths:
+      - "*"
+  push:
+    branches:
+      - "*"
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup go
+        uses: actions/setup-go@v1
+        with:
+          go-version: '1.15'
+
+      - name: Build
+        run: |
+          export GOPATH="${HOME}/go"
+          export PATH="${GOPATH}/bin:${PATH}"
+          VERSION=${GITHUB_REF##*/} make build-deps deps install test
+          make fmt
+          if [[ $(git status --short) != '' ]]; then
+            echo 'run make fmt and commit changes:'
+            git diff --stat
+            exit 1
+          fi

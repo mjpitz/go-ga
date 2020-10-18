@@ -9,7 +9,7 @@ jobs:
   goproxy:
     runs-on: ubuntu-latest
     container:
-      image: golang:1.15-alpine3.11
+      image: golang:1.15-alpine
     steps:
       - name: Resolve
         env:

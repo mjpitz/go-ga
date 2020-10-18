@@ -14,3 +14,9 @@ test:
 	go vet ./...
 	golint -set_exit_status ./...
 	go test -v -race -coverprofile=coverage.txt -covermode=atomic ./...
+
+docker:
+	docker build . \
+		--build-arg VERSION=local \
+		--tag mjpitz/beacon:latest \
+		-f Dockerfile

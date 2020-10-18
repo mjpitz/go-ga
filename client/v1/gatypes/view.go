@@ -1,7 +1,6 @@
 package gatypes
 
-//
-
+// TrafficSources encapsulates information about the system
 type TrafficSources struct { // t=(pageview,screenview)
 	DocumentReferrer   string `url:"dr,omitempty"`
 	CampaignName       string `url:"cn,omitempty"`
@@ -14,6 +13,7 @@ type TrafficSources struct { // t=(pageview,screenview)
 	GoogleDisplayAdsID string `url:"dclid,omitempty"`
 }
 
+// SystemInformation encapsulates information about the system
 type SystemInformation struct { // t=(pageview,screenview)
 	ScreenResolution string `url:"sr,omitempty"`
 	ViewPortSize     string `url:"vp,omitempty"`
@@ -24,6 +24,7 @@ type SystemInformation struct { // t=(pageview,screenview)
 	FlashVersion     string `url:"fl,omitempty"`
 }
 
+// ContentInformation encapsulates information about the page
 type ContentInformation struct { // t=(pageview,screenview)
 	DocumentLocationURL string `url:"dl,omitempty"`
 	DocumentHostName    string `url:"dh,omitempty"`
@@ -34,14 +35,16 @@ type ContentInformation struct { // t=(pageview,screenview)
 	LinkID string `url:"linkid,omitempty"`
 }
 
+// PageView encapsulates metrics for a pageview event
 type PageView struct {
-	TrafficSources     *TrafficSources     `url:"-"`
-	SystemInformation  *SystemInformation  `url:"-"`
-	ContentInformation *ContentInformation `url:"-"`
+	TrafficSources
+	SystemInformation
+	ContentInformation
 }
 
+// ScreenView encapsulates metrics for a screenview event
 type ScreenView struct {
-	TrafficSources     *TrafficSources     `url:"-"`
-	SystemInformation  *SystemInformation  `url:"-"`
-	ContentInformation *ContentInformation `url:"-"`
+	TrafficSources
+	SystemInformation
+	ContentInformation
 }

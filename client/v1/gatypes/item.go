@@ -1,5 +1,6 @@
 package gatypes
 
+// Item encapsulates information about an item event.
 type Item struct { // t=item
 	TransactionID string  `url:"ti,omitempty"`
 	ItemName      string  `url:"in,omitempty"`

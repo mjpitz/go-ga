@@ -1,5 +1,6 @@
 package gatypes
 
+// Transaction encapsulates fields on a transaction event
 type Transaction struct { // t=transaction
 	TransactionID          string  `url:"ti,omitempty"`
 	TransactionAffiliation string  `url:"ta,omitempty"`

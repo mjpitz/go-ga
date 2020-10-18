@@ -1,13 +1,11 @@
 package gatypes
 
+// Timing encapsulates data available on a timing event
 type Timing struct { // t=timing
 	UserTimingCategory     string `url:"utc,omitempty"`
 	UserTimingVariableName string `url:"utv,omitempty"`
 	UserTimingTime         int64  `url:"utt,omitempty"`
 	UserTimingLabel        string `url:"utl,omitempty"`
-
-	// less often used
-
 	PageLoadTime         int64 `url:"plt,omitempty"`
 	DNSTime              int64 `url:"dns,omitempty"`
 	PageDownloadTime     int64 `url:"pdt,omitempty"`

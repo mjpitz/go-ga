@@ -3,6 +3,10 @@
 Send data to Google Analytics from Go.
 This library implements the [measurement protocol] and supports a majority of the parameters.
 
+[![branch workflow](https://github.com/mjpitz/go-ga/workflows/branch/badge.svg?branch=main)](https://github.com/mjpitz/go-ga/actions?query=workflow%3Abranch)
+[![tag workflow](https://github.com/mjpitz/go-ga/workflows/tag/badge.svg)](https://github.com/mjpitz/go-ga/actions?query=workflow%3Atag)
+![](https://www.google-analytics.com/collect?v=1&tid=UA-172921913-1&cid=555&t=pageview&ec=repo&ea=open&dp=%2Fgo-ga&dt=%2Fgo-ga)
+
 [measurement protocol]: https://developers.google.com/analytics/devguides/collection/protocol/v1/reference
 
 ## Features

@@ -45,7 +45,7 @@ For more information, see the [parameter reference] documentation.
 - [x] Social Interactions
 - [x] Timing
 - [x] Exceptions
-- [ ] Custom Dimensions / Metrics
+- [x] Custom Dimensions / Metrics
 
 ## Examples
 

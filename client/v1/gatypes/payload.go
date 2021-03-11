@@ -1,18 +1,22 @@
 package gatypes
 
+import (
+	"fmt"
+	"net/url"
+)
+
 // https://developers.google.com/analytics/devguides/collection/protocol/v1/reference
 
 // Payload represent a ping payload you can send to Google Analytics.
 type Payload struct {
 	// General
-
 	Version    string `url:"v"`
 	TrackingID string `url:"tid"`
 
 	AnonymizeIP                       Boolean `url:"aip,omitempty"`
 	DisableAdvertisingPersonalization Boolean `url:"npa,omitempty"`
 	DataSource                        string  `url:"ds,omitempty"`
-	QueueTime                         int64   `url:"qt,omitempty"`
+	QueueTime                         float64 `url:"qt,omitempty"`
 	CacheBuster                       string  `url:"z,omitempty"`
 
 	HitType           string  `url:"t"`
@@ -22,6 +26,8 @@ type Payload struct {
 	Users
 	SessionControl
 	Apps
+	CustomDimensions `url:"cd,omitempty"`
+	CustomMetrics    `url:"cm,omitempty"`
 
 	// one of
 	Event
@@ -54,4 +60,28 @@ type Apps struct { // t=*
 	ApplicationID          string `url:"aid,omitempty"`
 	ApplicationVersion     string `url:"av,omitempty"`
 	ApplicationInstallerID string `url:"aiid,omitempty"`
+}
+
+// CustomDimensions defines user-provided characteristics.
+type CustomDimensions []string
+
+// EncodeValues converts custom dimensions to query string key-value pairs.
+func (b CustomDimensions) EncodeValues(key string, v *url.Values) error {
+	for i, dimension := range b {
+		k := fmt.Sprintf("%s%d", key, i+1)
+		v.Set(k, dimension)
+	}
+	return nil
+}
+
+// CustomMetrics defines user-provided measurements.
+type CustomMetrics []float64
+
+// EncodeValues converts custom metrics to query string key-value pairs.
+func (b CustomMetrics) EncodeValues(key string, v *url.Values) error {
+	for i, metric := range b {
+		k := fmt.Sprintf("%s%d", key, i+1)
+		v.Set(k, fmt.Sprintf("%f", metric))
+	}
+	return nil
 }

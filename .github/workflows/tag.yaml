@@ -38,7 +38,7 @@ jobs:
       - name: Build Container Image
         run: |
           docker buildx build . \
-            --platform linux/amd64,linux/arm64,linux/arm/v7 \
+            --platform linux/amd64,linux/arm64 \
             --build-arg VERSION=${GITHUB_REF##*/v} \
             --tag mjpitz/beacon:latest \
             --tag mjpitz/beacon:${GITHUB_REF##*/v} \

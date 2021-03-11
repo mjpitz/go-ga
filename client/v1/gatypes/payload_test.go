@@ -25,15 +25,15 @@ func Test_PayloadFull(t *testing.T) {
 			EventCategory: "test",
 			EventAction:   "test",
 		},
-		CustomDimensions: gatypes.CustomDimensions([]string{
+		CustomDimensions: []string{
 			"dimension-1",
 			"dimension-2",
-		}),
-		CustomMetrics: gatypes.CustomMetrics([]float64{
+		},
+		CustomMetrics: []float64{
 			1.1,
 			2.2,
 			3.3,
-		}),
+		},
 	}
 
 	v, err := query.Values(p)

@@ -30,13 +30,13 @@ For more information, see the [parameter reference] documentation.
 - [x] Traffic Sources
 - [x] System Info
 - [x] Hit
-- [ ] Content Information
+- [x] Content Information
   - [x] Document Location URL
   - [x] Document Host Name
   - [x] Document Path
   - [x] Document Title
   - [x] Screen Name
-  - [ ] Content Group
+  - [x] Content Group
   - [x] Link ID
 - [x] Apps
 - [x] Events

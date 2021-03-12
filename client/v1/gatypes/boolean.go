@@ -19,4 +19,10 @@ func (b Boolean) EncodeValues(key string, v *url.Values) error {
 	return nil
 }
 
+// DecodeValues will pull boolean data out of an existing values structure.
+func (b *Boolean) DecodeValues(key string, v *url.Values) error {
+	*b = v.Get(key) == "1"
+	return nil
+}
+
 var _ query.Encoder = Boolean(true)

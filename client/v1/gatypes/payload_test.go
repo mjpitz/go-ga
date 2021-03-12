@@ -5,8 +5,8 @@ import (
 	"testing"
 
 	"github.com/google/go-querystring/query"
-	v1 "github.com/mjpitz/go-ga/client/v1"
 
+	v1 "github.com/mjpitz/go-ga/client/v1"
 	"github.com/mjpitz/go-ga/client/v1/gatypes"
 
 	"github.com/stretchr/testify/require"

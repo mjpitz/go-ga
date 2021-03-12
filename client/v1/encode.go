@@ -5,6 +5,7 @@ import (
 	"net/url"
 
 	"github.com/google/go-querystring/query"
+
 	"github.com/mjpitz/go-ga/client/v1/gatypes"
 )
 

@@ -28,7 +28,7 @@ func (l *StringList) DecodeValues(key string, v *url.Values) error {
 		if strings.HasPrefix(k, key) {
 			i, err := strconv.Atoi(strings.TrimPrefix(k, key))
 			if err == nil {
-				values[i - 1] = value[0]
+				values[i-1] = value[0]
 				c++
 			}
 		}
@@ -59,7 +59,7 @@ func (l *Float64List) DecodeValues(key string, v *url.Values) error {
 		if strings.HasPrefix(k, key) {
 			i, err := strconv.Atoi(strings.TrimPrefix(k, key))
 			if err == nil {
-				values[i - 1], _ = strconv.ParseFloat(value[0], 64)
+				values[i-1], _ = strconv.ParseFloat(value[0], 64)
 				c++
 			}
 		}

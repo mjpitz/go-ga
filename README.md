@@ -13,6 +13,7 @@ This library implements the [measurement protocol] and supports a majority of th
 
 * Sending data to Google Analytics using GET or POST methods
 * Encoding payloads to URLs for embedding
+* Support for decoding url parameters into a struct using tags `url:"name"`
 * A simple containerized beacon for reporting on application usage
 
 ### Parameter Support

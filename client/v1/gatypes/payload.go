@@ -31,8 +31,10 @@ type Payload struct {
 	Social
 	Timing
 	Transaction
-	PageView
-	ScreenView
+	Views
+
+	// aply to Item and Transaction
+	TransactionID string `url:"ti,omitempty" json:"transaction_id,omitempty"`
 }
 
 // Users encapsulates information about the user performing an action

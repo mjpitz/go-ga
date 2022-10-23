@@ -35,15 +35,8 @@ type ContentInformation struct { // t=(pageview,screenview)
 	LinkID              string     `url:"linkid,omitempty" json:"link_id,omitempty"`
 }
 
-// PageView encapsulates metrics for a pageview event
-type PageView struct {
-	TrafficSources
-	SystemInformation
-	ContentInformation
-}
-
-// ScreenView encapsulates metrics for a screenview event
-type ScreenView struct {
+// Views encapsulates metrics for a pageview event or screenview event
+type Views struct {
 	TrafficSources
 	SystemInformation
 	ContentInformation

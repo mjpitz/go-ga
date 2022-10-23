@@ -10,7 +10,7 @@ import (
 
 	"github.com/hashicorp/go-uuid"
 
-	"github.com/mjpitz/go-ga/client/v1"
+	v1 "github.com/mjpitz/go-ga/client/v1"
 	"github.com/mjpitz/go-ga/client/v1/gatypes"
 )
 
@@ -73,20 +73,24 @@ func main() {
 		log.Println(err)
 	}
 
-	defer client.SendPost(&gatypes.Payload{
-		DisableAdvertisingPersonalization: true,
-		HitType:                           "event",
-		Users:                             users,
-		SessionControl: gatypes.SessionControl{
-			SessionControl: "end",
-		},
-		Event: gatypes.Event{
-			EventCategory: "beacon",
-			EventAction:   "shutdown",
-			EventLabel:    eventLabel,
-		},
-	})
-
+	defer func() {
+		err := client.SendPost(&gatypes.Payload{
+			DisableAdvertisingPersonalization: true,
+			HitType:                           "event",
+			Users:                             users,
+			SessionControl: gatypes.SessionControl{
+				SessionControl: "end",
+			},
+			Event: gatypes.Event{
+				EventCategory: "beacon",
+				EventAction:   "shutdown",
+				EventLabel:    eventLabel,
+			},
+		})
+		if err != nil {
+			log.Println(err)
+		}
+	}()
 	signals := make(chan os.Signal, 1)
 	signal.Notify(signals, syscall.SIGTERM, syscall.SIGINT)
 

@@ -1,0 +1,10 @@
+# Golang-ci configs
+run:
+  go: '1.18'
+  # Linters disabled, Go1.18 not supported by them 
+linters:
+  disable:
+    - gosimple
+    - staticcheck
+    - structcheck
+    - unused

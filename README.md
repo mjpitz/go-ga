@@ -108,3 +108,11 @@ func main() {
     // do something with url
 }
 ```
+
+## Changelog
+
+### v0.1.0
+
+Field `TransactionID` was deleted from, `Transaction` and `Item` structs, now it is available at `Payload` struct.
+
+Structs `ScreenView` and `PageView` was merged into `Views`.

@@ -73,4 +73,5 @@ func Test_PayloadFull(t *testing.T) {
 		require.Equal(t, p.CustomDimensions, decoded.CustomDimensions)
 		require.Equal(t, p.CustomMetrics, decoded.CustomMetrics)
 	}
+
 }
